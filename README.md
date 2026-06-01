@@ -47,4 +47,4 @@ Lovely Professional University
 
 🔗 GitHub Profile
 
-https://github.com/Riyan-gli
+https://github.com/Riyan-glitch
