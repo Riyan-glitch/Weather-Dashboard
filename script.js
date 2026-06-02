@@ -1,38 +1,67 @@
-function getWeather(){
+async function getWeather() {
 
     const city =
     document.getElementById("cityInput").value;
 
     if(city === ""){
-        alert("Please enter a city");
+
+        alert("Enter a city name");
+
         return;
     }
 
-    document.getElementById("city")
-    .textContent = city;
+    const apiKey =
+    "236505b959db62d6b0dcc65b34462330";
 
-    const temp =
-    Math.floor(Math.random()*15)+20;
+    const url =
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-    const humidity =
-    Math.floor(Math.random()*40)+40;
+    try{
 
-    const wind =
-    Math.floor(Math.random()*15)+5;
+        const response =
+        await fetch(url);
 
-    document.getElementById("temp")
-    .textContent =
-    temp + "°C";
+        const data =
+        await response.json();
 
-    document.getElementById("humidity")
-    .textContent =
-    humidity + "%";
+        if(data.cod != 200){
 
-    document.getElementById("wind")
-    .textContent =
-    wind + " km/h";
+            alert("City not found");
 
-    document.getElementById("condition")
-    .textContent =
-    "Partly Cloudy";
+            return;
+        }
+
+        document.getElementById("city")
+        .textContent =
+        data.name;
+
+        document.getElementById("temp")
+        .textContent =
+        Math.round(data.main.temp) + "°C";
+
+        document.getElementById("humidity")
+        .textContent =
+        data.main.humidity + "%";
+
+        document.getElementById("wind")
+        .textContent =
+        data.wind.speed + " km/h";
+
+        document.getElementById("condition")
+        .textContent =
+        data.weather[0].description;
+
+        const icon =
+        data.weather[0].icon;
+
+        document.getElementById("weatherIcon")
+        .src =
+        `https://openweathermap.org/img/wn/${icon}@2x.png`;
+
+    }
+
+    catch(error){
+
+        alert("Something went wrong");
+    }
 }
