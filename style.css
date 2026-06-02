@@ -6,20 +6,21 @@
 
 body{
 
+    font-family:'Poppins',sans-serif;
+
     min-height:100vh;
 
     display:flex;
     justify-content:center;
     align-items:center;
 
-    font-family:'Poppins',sans-serif;
-
     background:
     linear-gradient(
     135deg,
     #0f172a,
     #1e293b,
-    #334155);
+    #334155
+    );
 
     overflow:hidden;
 }
@@ -34,7 +35,152 @@ body::before{
     height:350px;
 
     background:
-    rgba(56,189,248,.3);
+    rgba(56,189,248,.25);
+
+    border-radius:50%;
+
+    top:-100px;
+    left:-100px;
+
+    filter:blur(80px);
+}
+
+body::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    background:
+    rgba(168,85,247,.25);
+
+    border-radius:50%;
+
+    bottom:-100px;
+    right:-100px;
+
+    filter:blur(80px);
+}
+
+.container{
+
+    width:90%;
+    max-width:500px;
+
+    padding:30px;
+
+    border-radius:25px;
+
+    color:white;
+
+    backdrop-filter:blur(25px);
+
+    background:
+    rgba(255,255,255,.08);
+
+    border:
+    1px solid rgba(255,255,255,.15);
+
+    text-align:center;
+
+    z-index:10;
+}
+
+h1{
+
+    margin-bottom:20px;
+}
+
+.search-box{
+
+    display:flex;
+    gap:10px;
+}
+
+input{
+
+    flex:1;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    outline:none;
+}
+
+button{
+
+    padding:14px 20px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    color:white;
+
+    background:
+    linear-gradient(
+    135deg,
+    #38bdf8,
+    #0ea5e9
+    );
+}
+
+.weather-card{
+
+    margin-top:25px;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    background:
+    rgba(255,255,255,.08);
+}
+
+#weatherIcon{
+
+    width:100px;
+    height:100px;
+
+    margin-bottom:10px;
+}
+
+#temp{
+
+    font-size:55px;
+
+    color:#38bdf8;
+}
+
+.details{
+
+    margin-top:20px;
+
+    display:flex;
+    gap:15px;
+}
+
+.detail{
+
+    flex:1;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    background:
+    rgba(255,255,255,.08);
+}    rgba(56,189,248,.3);
 
     border-radius:50%;
 
